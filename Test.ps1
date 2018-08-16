@@ -3,7 +3,7 @@ Describe "postbuild-copy-docker" {
   $ip = docker inspect $cid --format "{{ .NetworkSettings.Networks.nat.IPAddress }}"
 
   # Give it a bit for .\Start.ps1 to complete
-  Start-Sleep -Seconds 5
+  Start-Sleep -Seconds 10
 
   It "Should serve index.html" {
     $response = Invoke-WebRequest "http://$($ip)/" -UseBasicParsing
